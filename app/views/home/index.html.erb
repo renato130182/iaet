@@ -2,3 +2,11 @@
 <p>Hello Word, qua acabe a maldição <br>
     Heloo <%= @email %> 
 </p>
+
+<% if user_signed_in? %>
+    <% if current_user.restaurant? %>
+        <%= render 'restaurant'%>
+    <% elsif current_user.customer? %>
+        <%= render 'customer' %>
+    <% end %>
+<% end %>
